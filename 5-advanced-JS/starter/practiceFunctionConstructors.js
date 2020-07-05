@@ -1,5 +1,6 @@
 /**
  * Objects and Function Constructors
+ * Prototyping Chain
  */
 
 // this kind of object declaration is an instance of a Function Constructor Person
@@ -39,7 +40,7 @@ console.log(jane.lastname);
 console.log(mark.lastname);
 
 //Practice on console.log
-/**
+/*
  * john -> this will display what Prototypes John has , example: Person
  * john.hasOwnProperty('job') -> true
  * john.hasOwnProperty('lastname') -> false
@@ -50,7 +51,4 @@ console.log(mark.lastname);
  * var x= [2,3,4]
  * x -> this will also show the lenght property and an Array object prototype which has many other functions which are usually used in arrays
  *
- * / 
-
-
-
+ **/

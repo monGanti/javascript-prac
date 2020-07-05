@@ -24,10 +24,13 @@
  };
 
  john.presentation('formal','morning');
+ //here call is like borrowing a methof from another object without recreating it's instance for the new object
  john.presentation.call(ema,'casual','afternoon')
 
  //john.presentation.apply(ema,['casual','afternoon']) This willa ccept arrays but for that the function also should have passed arrays
 
+ //bind can bind limited parameters in an attempt to pass , 
+ //note: bins should always have this value in the beginning, if not available then use this
  var emaFormal = john.presentation.bind(ema,'formal');
  emaFormal('morning');
  emaFormal('night');
