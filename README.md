@@ -1,35 +1,115 @@
 # Some Important Notes 
 
-#Few Console Checks often used
-Math.random() -> gives random number in the format < 0 , example: 0.1 , 0.2 etc
-Math.random() * 6 -> this will make the number upto to the level to wanted , example 0 - 6
-Math.random() + 1 -> this will make it > 0 
-Math.floor() -> this will return the largest integer less than or equal to a given number.
-Math.round() 
+## Few UI Selections notes
 
-** read more here https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math **
-
-# Few UI Selections notes
-
-## Selecting the element
+### Selecting the element
 document.querySelector() -> selections are at class level so always use '.'
-document.querySelectorAll()
+var capture = document.querySelectorAll() ->this will always return a list, covert the lsit into an array
 document.getElementbyID() -> note here we dont have to use "#"
 document.getElementbyClass() -> note here we dont have to use '.'
 
-## using pre defined methods on selected or manipulate element
+### using pre defined methods on selected or manipulate element
 document.querySelector(element).textContent = <some value to compare>
 document.querySelector(element).style.display
 document.querySlector(element).classList.add(element)
 document.querySlector(element).classList.remove(element)
 document.querySlector(element).classList.toggle(element)
+document.getElementById(element).parentNode.removeChild(element)
 
-## Event Listeners
+### Event Listeners
 document.querySelector(element).addEventListener(event,function({
     <this is like an IIFE here for keeping anonymous function>
 }));
 
 document.querySelector(element).addEventListener(event,init); -> here init is a function that is being invoked by Eventlisters and not called which is why there is no () here. 
+
+What kind of events to use in Event Listeners , refer to this 
+https://developer.mozilla.org/en-US/docs/Web/Events
+
+### DOM Manipulations
+
+https://blog.garstasio.com/you-dont-need-jquery/dom-manipulation/
+
+
+## Operations Notes
+
+### Few Math and Console Checks often used
+Math.random() => gives random number in the format < 0 , example: 0.1 , 0.2 etc
+Math.random() * 6 => this will make the number upto to the level to wanted , example 0 - 6
+Math.random() + 1 => this will make it > 0 
+Math.floor() => this will return the largest integer less than or equal to a given number.
+Math.round() 
+Math.abs() => absolute value ignore + and -
+parse.Float() => just to convert a String into a float
+
+** read more here https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math **
+
+### Arrays and it's pre defiend methods
+var arr = [1,2,3,6,9]
+arr.push(10)  => [1,2,3,6,9,10] ,pushes to end of the array
+arr.unshift(0) => [0,1,2,3,6,9,10] ,shifts the first position and adds
+arr.pop() => [0,1,2,3,6,9] ,pops out from the end of array
+arr.shift() => [1,2,3,6,9] ,removed the first element and shifts the other elements forward
+arr.indexOf(6) => 3 , position of the given value
+arr.splice(<position of index to delete from>,<number of arguments to delete>) => arr.splice(0,1) => [2,3,6,9]
+
+##### Converting a list into an array with a trick
+//put the description and value fields into a list
+fields = document.querySelectorAll(domString.inputDescription + ',' + domString.inputValue);
+
+//trick the list to conver it into an array
+fieldsArr = Array.prototype.slice.call(fields);
+
+### Strings and it's pre defined methods
+var id = "income-0"
+var num = "1234.5678"
+
+id.split('-') => ["income" ,"0"]
+parse.Float() => just to convert a String into a decimal numebr
+parseInt() => to conver to integer
+num.toFixed(2) => to two decimal places with rounding of last digit, example 1234.57
+num.lenght => gives the lenght of string
+num.substr(<position to start reading>,<end position to end reading>) => num.substr(0,2) will be 12
+
+## Type Of
+var i = 10;
+var name = "John";
+typeOf(i) => number
+typeOF(name) => string
+
+
+## Prompts and Alerts
+alert("hello!!")
+
+var lastname = prompt("what is your lastname?")
+console.log(lastname);
+
+## Loops
+1.) if else
+2.) Switch 
+3.) Terneray => var drink = age>18?'beer':'juice';
+4.) for => for(i=0,i<array.lenght;i++){}
+5.) forEach => Array.foreach(function(current,index,array){}), this will go through all the array elements in the given array
+6.) map => Array.map(function(current,index,array){}), this will create a new copy of the given array and goes the actions mentioned within it
+
+## Other tips 
+1.) Truthy and Falsy Values 
+        falsy are: undefined,null,0,'',NAN
+        truthy are: which are NOT falsy
+        var height = 0;
+        if (height || height ==== 0){
+            ----
+        } 
+        Since 0 is a falsy value in order for a variable to accept to 0 as a value you msut explicity define it
+        var item = <get this value from somewhere>
+        if (item){
+            //note: item's true or false case will be defiend by our falsy & truthy rules
+        }
+2.) !isNaN(getInput.value) is equivalent to (getInput.value !=== '')
+
+
+
+
 
 
 
