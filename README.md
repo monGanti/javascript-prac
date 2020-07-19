@@ -39,28 +39,27 @@ https://blog.garstasio.com/you-dont-need-jquery/dom-manipulation/
 * Math.random() + 1 //this will make it > 0 
 * Math.floor() //this will return the largest integer less than or equal to a given number.
 * Math.round() 
-* Math.abs() => absolute value ignore + and -
-* parse.Float() => just to convert a String into a float
+* Math.abs() //absolute value ignore + and -
+* parse.Float() //just to convert a String into a float
 
 ** read more here https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math **
 
 ### Arrays and it's pre defiend methods
-var arr = [1,2,3,6,9]
-arr.push(10)  => [1,2,3,6,9,10] ,pushes to end of the array
-arr.unshift(0) => [0,1,2,3,6,9,10] ,shifts the first position and adds
-arr.pop() => [0,1,2,3,6,9] ,pops out from the end of array
-arr.shift() => [1,2,3,6,9] ,removed the first element and shifts the other elements forward
-arr.indexOf(6) => 3 , position of the given value
-arr.splice(<position of index to delete from>,<number of arguments to delete>) => arr.splice(0,1) => [2,3,6,9]
+* var arr = [1,2,3,6,9]
+* arr.push(10)  => [1,2,3,6,9,10] //pushes to end of the array
+* arr.unshift(0) => [0,1,2,3,6,9,10] //shifts the first position and adds
+* arr.pop() => [0,1,2,3,6,9] //pops out from the end of array
+* arr.shift() => [1,2,3,6,9] //removed the first element and shifts the other elements forward
+* arr.indexOf(6) => 3 //position of the given value
+* arr.splice(<position of index to delete from>,<number of arguments to delete>) => arr.splice(0,1) => [2,3,6,9]
 
 //ES6 - few which are new in ES6
 const ages = [12,17,8,21,14,11];
 
-ages.findIndex(cur => cur>=18); //to find position in array
-ages.find(cur => cur>=18); // to find a value in array
-const sumAges = agesSumFunction(...ages) // this is a spread operator which can pass independent elements of the array into the function
-
-ages.reduce((prev,cur,index) => prev+current,0) // this will sum up all the previous and current values and 0   indicates where to start from , example it can be any number like 100 or 200 to start from. example : 0+12+17... = previous value will keep the sum.
+* ages.findIndex(cur => cur>=18); //to find position in array
+* ages.find(cur => cur>=18); //to find a value in array
+* const sumAges = agesSumFunction(...ages) //this is a spread operator which can pass independent elements of the array into the function
+* ages.reduce((prev,cur,index) => prev+current,0) // this will sum up all the previous and current values and 0   indicates where to start from , example it can be any number like 100 or 200 to start from. example : 0+12+17... = previous value will keep the sum.
 
 
 ##### NodeList - Converting a list into an array with a trick
@@ -68,37 +67,37 @@ ages.reduce((prev,cur,index) => prev+current,0) // this will sum up all the prev
 fields = document.querySelectorAll(domString.inputDescription + ',' + domString.inputValue);
 
 //trick the list to conver it into an array in ES5
-fieldsArr = Array.prototype.slice.call(fields);
+* fieldsArr = Array.prototype.slice.call(fields);
 
 //in ES6
-Array.from(fields) //this will return an array by converting a list into an Array and you cna use this directly
+* Array.from(fields) //this will return an array by converting a list into an Array and you cna use this directly
 const all = [a,b,...fields]; //useing spread operator on list will also return list 
 
 ### Strings and it's pre defined methods
 var id = "income-0"
 var num = "1234.5678"
 
-id.split('-') => ["income" ,"0"]
-parse.Float() => just to convert a String into a decimal numebr
-parseInt() => to conver to integer
-num.toFixed(2) => to two decimal places with rounding of last digit, example 1234.57
-num.lenght => gives the lenght of string
-num.substr(<position to start reading>,<end position to end reading>) => num.substr(0,2) will be 12
+* id.split('-') => ["income" ,"0"]
+* parse.Float() => just to convert a String into a decimal numebr
+* parseInt() => to conver to integer
+* num.toFixed(2) => to two decimal places with rounding of last digit, example 1234.57
+* num.lenght => gives the lenght of string
+* num.substr(<position to start reading>,<end position to end reading>) => num.substr(0,2) will be 12
 
 const n = `${firstName} ${lastName}`;
 
-console.log(n.startsWith('J'));
-console.log(n.endsWith('th'));
-console.log(n.includes('oh'));
-console.log(firstName.repeat(5));
-console.log(`${firstName} `.repeat(5));
+* console.log(n.startsWith('J'));
+* console.log(n.endsWith('th'));
+* console.log(n.includes('oh'));
+* console.log(firstName.repeat(5));
+* console.log(`${firstName} `.repeat(5));
 
 
 ## Type Of
 var i = 10;
 var name = "John";
-typeOf(i) => number
-typeOF(name) => string
+* typeOf(i) => number
+* typeOF(name) => string
 
 
 ## Prompts and Alerts
@@ -136,14 +135,14 @@ refer to specific chapters as JS is all about these two main topics
 
 ## Maps
 const question = new Map(); //initializing a map
-question.set(1,'what is your name?'); //setting key and value into the Map
-question.set(true,45);
+* question.set(1,'what is your name?'); //setting key and value into the Map
+* question.set(true,45);
 
-question.get(1); //getting value from a Map
-question.has(45); //check the existence of a value
-question.size; //map lenght check
-question.clear(); //clears out the map data
-question.delete(1); //delete one specific value and key 
+* question.get(1); //getting value from a Map
+* question.has(45); //check the existence of a value
+* question.size; //map lenght check
+* question.clear(); //clears out the map data
+* question.delete(1); //delete one specific value and key 
 
 
 
