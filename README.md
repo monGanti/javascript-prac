@@ -144,6 +144,26 @@ const question = new Map(); //initializing a map
 * question.clear(); //clears out the map data
 * question.delete(1); //delete one specific value and key 
 
+## Sync and Async 
+* Async : if there are any wait steps then the callback functions will run in the background and still allows the rest of the script to be executed continuously. Highly needed when there are large images to be processed etc when rest of the code can be executed while one method is still processing. 
+
+* Sync: when the lines of code go step by step in order
+
+* Advantages: 
+    -> Allow aync fucntions to run in background
+    -> We pass in callbacks that run once the fucntion has finished its work
+    -> Move immediately without blocking
+
+* How it works behind scenes: 
+    -> when an execution stack is created with any such "Web API" based functions then it sends a call back to web API engine, it sits there until execution is done and in the meanwhile the event stack will remove this stack and continue taking other stack of events.
+    -> When the execution is done for that call back fucntion in Web API engine then it add's that call back function to the message queue and waits for event stack to take it back and execute
+    -> web API engine is outside the regular JS but comes with it and it hold many such long lasting events
+
+## ES6 Web API methods
+* setTimeout(() => {},1500) 
+  setTimeout(id => {},2500,recipe.id) 
+  // time it will wait to do the processing mentioned in the call back function
+
 
 
 
