@@ -164,6 +164,15 @@ const question = new Map(); //initializing a map
   setTimeout(id => {},2500,recipe.id) 
   // time it will wait to do the processing mentioned in the call back function
 
+## Basic Cmd commands
+* mkdir <dirName> : make a directory
+* touch <fileName> : to create a file like touch test.js
+* cp <fileName> <locationToBeMovedTo>: will copy and place the file in the previous directory
+* mv <fileName> <locationToBeMovedTo> : will move from its current location to specified location
+* rm <fileName> : this will remove the file permanently from hardrive
+* rm -r <fileName>: this will remove the file and recursively all files and even the directory
+* 
+
 
 
 
