@@ -106,14 +106,22 @@ alert("hello!!")
 var lastname = prompt("what is your lastname?")
 console.log(lastname);
 
-## Loops
+## Loops in ES5
 1.) if else
 2.) Switch 
 3.) Terneray :  var drink = age>18?'beer':'juice';
 4.) for : for(i=0,i<array.lenght;i++){}
 5.) forEach : Array.foreach(function(current,index,array){}) //this will go through all the array elements in the given array
 6.) map : Array.map(function(current,index,array){}) //this will create a new copy of the given array and goes the actions mentioned within it
-7.) for of : for (const cur of array){ } //this loop can take continue and break commands and also have benefits of forEach method, so it is a beautiful combination of forEach and for loop
+
+## Loops in ES6
+1.) forEach :   a. Array.forEach(cur => {})
+                b. Array.forEach(results) // where results is a function itself such as which takes 1 argument and forEach will send each argument from the array to this function 
+                //const results = r =>{}
+
+2.) for of :  a. for (const cur of array){ } //this loop can take continue and break commands and also have benefits of forEach method, so it is a beautiful combination of forEach and for loop
+
+** Note: forEach or for of can always send current,index,array as well
 
 ## Objects and Functions
 refer to specific chapters as JS is all about these two main topics
@@ -159,6 +167,9 @@ const question = new Map(); //initializing a map
     -> When the execution is done for that call back fucntion in Web API engine then it add's that call back function to the message queue and waits for event stack to take it back and execute
     -> web API engine is outside the regular JS but comes with it and it hold many such long lasting events
 
+## Promises 
+must go through the chapter 8 as there are notes at every step wrt to promises
+
 ## ES6 Web API methods
 * setTimeout(() => {},1500) 
   setTimeout(id => {},2500,recipe.id) 
@@ -171,7 +182,6 @@ const question = new Map(); //initializing a map
 * mv <fileName> <locationToBeMovedTo> : will move from its current location to specified location
 * rm <fileName> : this will remove the file permanently from hardrive
 * rm -r <fileName>: this will remove the file and recursively all files and even the directory
-* 
 
 
 
