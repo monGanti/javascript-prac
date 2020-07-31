@@ -15,9 +15,18 @@ index.js
     //import {add as a,multiply as m,ID} from './views/searchView';
     import * as searchView from './views/searchView';
 
+    *Usage*
     //console.log(`addition is: ${add(ID,2)} and Multiple is: ${multiply(3,5)} and string is: ${str}`);
     //console.log(`addition is: ${a(ID,2)} and Multiple is: ${m(3,5)} and string is: ${str}`);
     console.log(`addition is: ${searchView.add(searchView.ID,3)} and Multiple is: ${searchView.multiply(4,5)} and string is: ${str}`)`
+
+    * Other Notes *
+    //When importing a package , you do not require a path specification
+    import {Fraction} from "fractional";
+
+    **Note: Sometimes developers do not use these kind of import and export which exist in ES6, they use direct npm format which is older way of writing as below
+    var Fraction = require('fractional).Fraction; // this is also a kind of import
+    module.export.Fraction // this is a kind of export too
 
 ## API Calling
 1. it's no more advisable to use fetch , so for importing axios 
@@ -67,3 +76,62 @@ MVC is model-view-controller.
 8. index.js:    a. add this getResults function into the controlSearch function steps to render data
 
 #### Clear the input field in the search area
+
+9. searchView.js :  a. add clearInputField() method
+                    b. add clearResults() which exists on left side method
+                    using query selectors
+
+10. base.js : add any selectors to elements for step9 
+
+11. index.js: a. IN controlSearch() add both methods to clearInputField() and clearResults()
+
+#### Edit the search list for NOT displaying full name and concising the list
+
+12. searchView.js : a. add a methods to concise the title name
+                    b. add that method within the markup method where the initial title was captured from the UI
+
+#### Add a Spinner while the search results are coming up on screen 
+
+13. base.js : since the loader can be reused across multiple views, it's better to write it here
+                a.) write a method to rnederLoader()
+                b.) write a method to clearLoader()
+
+14. index.js: call both the methods here witin controlSearch() , also import the new methods 
+
+#### Add Pagination to recipes results
+
+15. searchView.js : a. to the renderResults() methods we need enhancements 
+                    b. add renderButtons() methods which can be called within renderResults()
+                    c. add a seperate method for exact button markup as well and call it within renderButtons()
+
+16. index.js    : a. add a click evenlistener for the page button
+                  b. modify the clearResults() with clearing out page HTML 
+
+## Recipe MVC 
+
+#### Recipe Model Creation
+
+1. Recipe.js : a.) Make a model and add the get api call async method
+               b.) Add CalcCookTime() and TotalServing() methods based on the data 
+               c.) you cna test by calling this import into index.js to see that data details
+
+#### Recipe Controller 
+2. Index.js : a.) add the eventhandler on Window which gets a unique hash id of each recipe
+              b.) add a controlRecipe() method and start adding all recipe related code here
+
+#### Recipe View 
+3. recipeView.js : a.) create the renderRecipe() functionwith markup for center of the page recipe section
+                   b.) add this to the index.js controller under recipe controller section
+                   c.) basically a click on a recipe will show its recipe details in the center
+                   d.) clear out the recipe each time using clearRecipe() on index.js -> controlRecipe()
+
+#### Update the count in the ingradients within the Recipe
+
+4. recipeView.js : a.) install fractorial into package.json to do some fractions within recipeView
+                b.) 
+
+#### Update the servings + /- 
+                
+
+
+

@@ -1,6 +1,6 @@
 # Some Important Notes 
 
-## Few UI Selections notes
+## Few UI Controller notes
 
 ### Selecting the element
 * document.querySelector() -> selections are at class level so always use '.' 
@@ -9,12 +9,23 @@
 * document.getElementbyClass() -> note here we dont have to use '.'  
 
 ### using pre defined methods on selected or manipulate element
+Most commonly used element manipulations on UI controllers
 * document.querySelector(element).textContent = <some value to compare>
+* document.querySelector(element).value = <get the value present>
 * document.querySelector(element).style.display
 * document.querySlector(element).classList.add(element)
 * document.querySlector(element).classList.remove(element)
 * document.querySlector(element).classList.toggle(element)
 * document.getElementById(element).parentNode.removeChild(element)
+* document.querySelector(element).innerHTML = '' //clear or replace the inner HTML
+* document.querySelector(element).insertAdjacentHTML()
+* el.closest('<a class or id etc>') //selects the closest of the class 
+* el.matches('') // this will match all the elements which is child of this class
+
+refer to this MDN for any element manipulations 
+
+Example: this is for .innerHTML manipulation
+https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
 
 ### Event Listeners
 document.querySelector(element).addEventListener(event,function({ 
@@ -25,6 +36,20 @@ document.querySelector(element).addEventListener(event,init); // here init is a 
 
 What kind of events to use in Event Listeners , refer to this 
 https://developer.mozilla.org/en-US/docs/Web/Events
+
+Delegations examples:
+
+1.) elements.recipe.addEventListener('click', e => {
+    <!-- if there are more than 1 type of buttons which needs the match to the top most class then we use .matches in this case it is +/- buttons for servings and like buttons near it etc which are all sitting in the same header -->
+        if(e.target.matches('.btn-decrease, .btn-decrease *')) {}
+}
+
+2.) elements.searchResPages.addEventListener('click',e => {
+    <!-- basically when you check this target, a click made on button or arrow or anywhere near the text will show 
+    different locators , inorder for this click to be generic we need to use event deligation and transfer all events to main class and usage of ".closest()" does that -->
+    const btn = e.target.closest('.btn-inline');
+    if (btn){}
+}
 
 ### DOM Manipulations
 
@@ -40,6 +65,7 @@ https://blog.garstasio.com/you-dont-need-jquery/dom-manipulation/
 * Math.floor() //this will return the largest integer less than or equal to a given number.
 * Math.round() 
 * Math.abs() //absolute value ignore + and -
+* Math.ceil() // 4.3 becomes 5 unlike regular round which rounds down
 * parse.Float() //just to convert a String into a float
 
 ** read more here https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math **
@@ -55,11 +81,18 @@ https://blog.garstasio.com/you-dont-need-jquery/dom-manipulation/
 
 //ES6 - few which are new in ES6
 const ages = [12,17,8,21,14,11];
+const str1 = ['Pasta', 'with','tomato','sauce'];
+const ingredient = [4, 1/2]
 
 * ages.findIndex(cur => cur>=18); //to find position in array
 * ages.find(cur => cur>=18); //to find a value in array
 * const sumAges = agesSumFunction(...ages) //this is a spread operator which can pass independent elements of the array into the function
 * ages.reduce((prev,cur,index) => prev+current,0) // this will sum up all the previous and current values and 0   indicates where to start from , example it can be any number like 100 or 200 to start from. example : 0+12+17... = previous value will keep the sum.
+* str1.split(' ') //this splits the string of arrays into elements
+* str1.join(' ') // this will join the string of array elements into a sentence "Pasta with tomato sauce"
+* const t = ingradient.slice(0,1).join('+')) // [4+1/2]
+* const t2 = eval(t) // 4.5
+
 
 
 ##### NodeList - Converting a list into an array with a trick
@@ -68,6 +101,7 @@ fields = document.querySelectorAll(domString.inputDescription + ',' + domString.
 
 //trick the list to conver it into an array in ES5
 * fieldsArr = Array.prototype.slice.call(fields);
+
 
 //in ES6
 * Array.from(fields) //this will return an array by converting a list into an Array and you cna use this directly
@@ -92,13 +126,11 @@ const n = `${firstName} ${lastName}`;
 * console.log(firstName.repeat(5));
 * console.log(`${firstName} `.repeat(5));
 
-
 ## Type Of
 var i = 10;
 var name = "John";
 * typeOf(i) => number
 * typeOF(name) => string
-
 
 ## Prompts and Alerts
 alert("hello!!")
@@ -112,7 +144,7 @@ console.log(lastname);
 3.) Terneray :  var drink = age>18?'beer':'juice';
 4.) for : for(i=0,i<array.lenght;i++){}
 5.) forEach : Array.foreach(function(current,index,array){}) //this will go through all the array elements in the given array
-6.) map : Array.map(function(current,index,array){}) //this will create a new copy of the given array and goes the actions mentioned within it
+6.) map : Array.map(function(current,index,array){}) //unlike forEach or for this will create a new copy of the given array and does the actions mentioned within it
 
 ## Loops in ES6
 1.) forEach :   a. Array.forEach(cur => {})
@@ -122,6 +154,10 @@ console.log(lastname);
 2.) for of :  a. for (const cur of array){ } //this loop can take continue and break commands and also have benefits of forEach method, so it is a beautiful combination of forEach and for loop
 
 ** Note: forEach or for of can always send current,index,array as well
+
+3.) map : this will work like forEach but unlike forEach this can return a copy of new array
+const age = array.map(el => 2020 - el);
+Do not use maps, if you do not have a callBAck return or the input is not an array.
 
 ## Objects and Functions
 refer to specific chapters as JS is all about these two main topics
@@ -141,7 +177,7 @@ refer to specific chapters as JS is all about these two main topics
         }
 2.) !isNaN(getInput.value) is equivalent to (getInput.value !=== '')
 
-## Maps
+## Maps (like a hash Map)
 const question = new Map(); //initializing a map
 * question.set(1,'what is your name?'); //setting key and value into the Map
 * question.set(true,45);
@@ -151,6 +187,9 @@ const question = new Map(); //initializing a map
 * question.size; //map lenght check
 * question.clear(); //clears out the map data
 * question.delete(1); //delete one specific value and key 
+
+Do not confuse with the .map() which we use in loops,
+.map() can also be used as loop where it's funcitonality is different, check out ES5 and ES6 loops section
 
 ## Sync and Async 
 * Async : if there are any wait steps then the callback functions will run in the background and still allows the rest of the script to be executed continuously. Highly needed when there are large images to be processed etc when rest of the code can be executed while one method is still processing. 
@@ -182,6 +221,10 @@ must go through the chapter 8 as there are notes at every step wrt to promises
 * mv <fileName> <locationToBeMovedTo> : will move from its current location to specified location
 * rm <fileName> : this will remove the file permanently from hardrive
 * rm -r <fileName>: this will remove the file and recursively all files and even the directory
+
+## Imports and Exports
+There are multiple ways to import and export files from/to another within ES6
+Check the beginning of the forkifyProjectNotes.md for details on this area.
 
 
 
