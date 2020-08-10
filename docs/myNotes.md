@@ -21,6 +21,9 @@ Most commonly used element manipulations on UI controllers
 * document.querySelector(element).insertAdjacentHTML()
 * el.closest('<a class or id etc>') //selects the closest of the class 
 * el.matches('') // this will match all the elements which is child of this class
+//e.target.matches('.btn-increase, .btn-increase *') //know th importance of *, it means all of the child elements
+* document.querySelector(`[data-itemid="${id}"]`);
+* document.querySelector('.recipe__love use').setAttribute('href',`img/icons.svg#${iconString}`); // know baout .setattribute
 
 refer to this MDN for any element manipulations 
 
@@ -90,9 +93,12 @@ const ingredient = [4, 1/2]
 * ages.reduce((prev,cur,index) => prev+current,0) // this will sum up all the previous and current values and 0   indicates where to start from , example it can be any number like 100 or 200 to start from. example : 0+12+17... = previous value will keep the sum.
 * str1.split(' ') //this splits the string of arrays into elements
 * str1.join(' ') // this will join the string of array elements into a sentence "Pasta with tomato sauce"
-* const t = ingradient.slice(0,1).join('+')) // [4+1/2]
+* const t = ingradient.slice(0,1).join('+')) // [4+1/2] just takes the start and end and take out that portion and puts it in a new array, in this case it also joins before putting it into the new array but note that end here is NOT included value
 * const t2 = eval(t) // 4.5
 
+Important difference between slice and splice
+ //[2,4,8] splice(1,2) -> returns [4,8] , original array is [2]
+//[2,4,8] slice(1,2) -> returns 4, original array is [2,4,8]
 
 
 ##### NodeList - Converting a list into an array with a trick
@@ -110,6 +116,7 @@ const all = [a,b,...fields]; //useing spread operator on list will also return l
 ### Strings and it's pre defined methods
 var id = "income-0"
 var num = "1234.5678"
+likes = ["id","recipeTitle","recipeAuthor,"recipeImg"]
 
 * id.split('-') => ["income" ,"0"]
 * parse.Float() => just to convert a String into a decimal numebr
@@ -126,6 +133,9 @@ const n = `${firstName} ${lastName}`;
 * console.log(firstName.repeat(5));
 * console.log(`${firstName} `.repeat(5));
 
+* JSON.stringify(this.likes) //where likes is an array and this converts the full thing as array, Example "["id,"recipeTitle...]"
+* JSON.parse(localStorage.getItem('likes') //this converts it back to non string array
+
 ## Type Of
 var i = 10;
 var name = "John";
@@ -139,12 +149,12 @@ var lastname = prompt("what is your lastname?")
 console.log(lastname);
 
 ## Loops in ES5
-1.) if else
-2.) Switch 
-3.) Terneray :  var drink = age>18?'beer':'juice';
-4.) for : for(i=0,i<array.lenght;i++){}
-5.) forEach : Array.foreach(function(current,index,array){}) //this will go through all the array elements in the given array
-6.) map : Array.map(function(current,index,array){}) //unlike forEach or for this will create a new copy of the given array and does the actions mentioned within it
+1.) if else 
+2.) Switch  
+3.) Terneray :  var drink = age>18?'beer':'juice'; 
+4.) for : for(i=0,i<array.lenght;i++){} 
+5.) forEach : Array.foreach(function(current,index,array){}) //this will go through all the array elements in the given array 
+6.) map : Array.map(function(current,index,array){}) //unlike forEach or for this will create a new copy of the given array and does the actions mentioned within it 
 
 ## Loops in ES6
 1.) forEach :   a. Array.forEach(cur => {})
@@ -164,17 +174,17 @@ refer to specific chapters as JS is all about these two main topics
 
 ## Other tips 
 1.) Truthy and Falsy Values 
-        falsy are: undefined,null,0,'',NAN
-        truthy are: which are NOT falsy
-        var height = 0;
-        if (height || height ==== 0){
+        `falsy are: undefined,null,0,'',NAN 
+        truthy are: which are NOT falsy 
+        var height = 0; 
+        if (height || height ==== 0){ 
             ----
         } 
         Since 0 is a falsy value in order for a variable to accept to 0 as a value you msut explicity define it
         var item = <get this value from somewhere>
         if (item){
             //note: item's true or false case will be defiend by our falsy & truthy rules
-        }
+        }`
 2.) !isNaN(getInput.value) is equivalent to (getInput.value !=== '')
 
 ## Maps (like a hash Map)
@@ -225,6 +235,15 @@ must go through the chapter 8 as there are notes at every step wrt to promises
 ## Imports and Exports
 There are multiple ways to import and export files from/to another within ES6
 Check the beginning of the forkifyProjectNotes.md for details on this area.
+
+## Persistent Data
+localstorage is a persistent data on any browser, you can open a browser and chck this on console
+
+* localstorage.setItem('id','anjdsjd')
+* localstorage.getItem('id')
+* localstorage.lenght
+* localstorage
+* localstorage.removeItem('id')
 
 
 
