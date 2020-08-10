@@ -1,8 +1,0 @@
-#ignore node modules
-9-forkify/starter/node_modules
-
-#package-lock
-9-forkify/starter/package-lock.js
-
-.vscode/
-.DS_Store
