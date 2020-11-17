@@ -134,7 +134,7 @@ const n = `${firstName} ${lastName}`;
 * console.log(`${firstName} `.repeat(5));
 
 * JSON.stringify(this.likes) //where likes is an array and this converts the full thing as array, Example "["id,"recipeTitle...]"
-* JSON.parse(localStorage.getItem('likes') //this converts it back to non string array
+* JSON.parse(localStorage.getItem('likes') //this converts it back to non string array or converts any data into object data
 
 ## Type Of
 var i = 10;
