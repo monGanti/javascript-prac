@@ -16,31 +16,34 @@ birthyear is Variable and 1990 is the value which is a known fact. But note that
 
 In order to check the type of a value, you can do
 
-console.log(typeOf birthYear);  
-    *number*
+    `console.log(typeOf birthYear); `
 
-console.log(typeOf Undefined);
-    *undefined*
+Output: number
 
-console.log (typeOf null);
-    *Has an outstanding Bug and it says `Object` which is incorrect*
+    `console.log(typeOf Undefined);`
+
+Output: undefined
+
+    `console.log (typeOf null);`
+
+Has an outstanding Bug and it says `Object` which is incorrect*
 
 ### 3. Usage of let , const, var
 
-* var: is older ES way of definiiton and should not be used
-* let: only for mutable variables
-* const: only for immutable variables (default)
+* **var:** is older ES way of definiiton and should not be used
+* **let:** only for mutable variables
+* **const:** only for immutable variables (default)
 
 ### 4. Strings and template literals
 const val = "I'm " + firstName + ' , a ' + (year - birthYear) + ' years old'
 
-console.log(val);
+    `console.log(val);`
 
-* This is complex way of typing the string, hence there exists template literals as below.
+This is complex way of typing the string, hence there exists template literals as below.
 
-const tempLiterals = `I'm ${firstName} , a ${year - birthyear} years old`; `
+    `const tempLiterals = `I'm ${firstName} , a ${year - birthyear} years old`; `
 
-* using tempalte literals you can write string in multi line without using \n
+Using tempalte literals you can write string in multi line without using \n
 
 ### 4. Taking Decisions if/else
 
@@ -56,7 +59,8 @@ const tempLiterals = `I'm ${firstName} , a ${year - birthyear} years old`; `
     `
 
 ### 5. Type Conversion and Coersion
-**Type Conversion**
+**Type Conversion** 
+
 You can convert a string to a number by using Number() and number to a string using String()
 
     ` const inputYear = '1991';
@@ -73,7 +77,8 @@ Output: NaN
 
 Output: 23[non colored] , 23[ colored indicating its a number]
 
-**Type Coersion**
+**Type Coersion** 
+
 The + Operators will trigger the coersion to convert anything into a string dynamically without specifying '23' and can just say 23
 
     ` console.log('I am' + 23 + ' years old'); `
